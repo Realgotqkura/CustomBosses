@@ -1,0 +1,11 @@
+main: Main.main
+name: CustomBosses_1.0
+version: 0.2
+author: Realgotqkura
+api-version: "1.13"
+
+commands:
+  CBossesGUI:
+    description: The main GUI for CustomBosses_1.0
+
+    

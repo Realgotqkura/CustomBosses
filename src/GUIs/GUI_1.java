@@ -23,11 +23,11 @@ public class GUI_1 implements Listener{
 	} 
 	
 	public Inventory startInv;
-	private GUI_Items items = new GUI_Items();
-	private GUISorting sort = new GUISorting();
 	
 	//methods
 	public void createStartInv() {
+		GUISorting sort = new GUISorting(plugin);
+		GUI_Items items = new GUI_Items(plugin);
 		startInv = Bukkit.createInventory(null, 54, "§a§lCustom Bosses GUI");
 		
 		

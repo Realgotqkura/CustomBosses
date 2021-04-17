@@ -3,6 +3,7 @@ package Main;
 import CustomBosses_Events.InvClickEvent;
 import CustomBosses_Events.Join_Event;
 import CustomBosses_Events.MobSpawnEvent;
+import CustomBosses_Events.NaturalSpawning_Event;
 import DataManager.CustomConfig_1;
 import GUIs.*;
 import org.bukkit.Bukkit;
@@ -31,11 +32,12 @@ public class main extends JavaPlugin{
 		CBPotionsGUI potgui = new CBPotionsGUI(this.data,this);
 		CBPropertiesGUI prop = new CBPropertiesGUI(this.data ,this);
 		GUI_1 gui1 = new GUI_1(this, this.data);
-		MobSpawnEvent spawn = new MobSpawnEvent(this.data);
+		MobSpawnEvent spawn = new MobSpawnEvent(this.data, this);
 		GUI_2 gui2 = new GUI_2(this, this.data);
 		PickMobGUI gui3 = new PickMobGUI(this, this.data);
 		Join_Event jEvent = new Join_Event(this.data, this);
 		DropChanceGUI gui111 = new DropChanceGUI(this.data, this);
+		NaturalSpawning_Event spawnevent = new NaturalSpawning_Event(this, this.data);
 
 		//Listeners
 		this.getServer().getPluginManager().registerEvents(new SpawnGUI(this, this.data), this);
@@ -49,6 +51,10 @@ public class main extends JavaPlugin{
 		this.getServer().getPluginManager().registerEvents(gui2, this);
 		this.getServer().getPluginManager().registerEvents(gui3, this);
 		this.getServer().getPluginManager().registerEvents(gui111, this);
+		this.getServer().getPluginManager().registerEvents(new NaturalSpawnGUI(this.data,this), this);
+
+		spawnevent.SpawnMobs(data, this);
+
 		
 	}
 	@Override

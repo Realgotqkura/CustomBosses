@@ -16,9 +16,6 @@ import org.bukkit.inventory.Inventory;
 public class EquipmentGUI implements Listener {
 
     public Inventory EqInv;
-    private GUISorting sort = new GUISorting();
-    private EquipmentStacks stacks = new EquipmentStacks();
-    private GUI_Items items = new GUI_Items();
     private CustomConfig_1 data;
     private main plugin;
     public EquipmentGUI(CustomConfig_1 data, main plugin){
@@ -26,7 +23,11 @@ public class EquipmentGUI implements Listener {
         this.plugin = plugin;
     }
 
+    private EquipmentStacks stacks = new EquipmentStacks();
+    private GUI_Items items = new GUI_Items(plugin);
+
     public void createEqInv(){
+        GUISorting sort = new GUISorting(plugin);
         EqInv = Bukkit.createInventory(null, 54, RandomUtils.color("&c&lEquipment GUI"));
         sort.GetInner(EqInv, 54);
         sort.GetOuter(EqInv, 54, false);

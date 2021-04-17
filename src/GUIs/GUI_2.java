@@ -27,8 +27,8 @@ public class GUI_2 implements Listener{
 	} 
 	
 	private CBPropertiesGUI proper = new CBPropertiesGUI(data, plugin);
-	private GUI_Items items = new GUI_Items();
-	private GUISorting sort = new GUISorting();
+	private GUI_Items items = new GUI_Items(plugin);
+	private GUISorting sort = new GUISorting(plugin);
 	private PickMobGUI mobgui = new PickMobGUI(plugin, this.data);
 	private SetBossThingyGUI setMob = new SetBossThingyGUI();
 

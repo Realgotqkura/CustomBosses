@@ -21,20 +21,17 @@ import java.util.Objects;
 public class CBPropertiesGUI implements Listener{
 
 	public CustomConfig_1 data;
-	main plugin;
+	private main plugin;
 	public CBPropertiesGUI(CustomConfig_1 data, main plugin) {
 		this.data = data;
 		this.plugin = plugin;
 	}
 	
 	public Inventory prop;
-	private final GUISorting sort = new GUISorting();
 	private final CBPropertiesItems items = new CBPropertiesItems();
-	
-	
-	
-	
+
 	public void createProp() {
+		GUISorting sort = new GUISorting(plugin);
 		prop = Bukkit.createInventory(null, 27, ChatColor.DARK_PURPLE +"" + ChatColor.BOLD + "Mob properties");
 		sort.GetOuter(prop, 27, true);
 		sort.GetInner(prop, 27);

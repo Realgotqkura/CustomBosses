@@ -24,7 +24,7 @@ public class CBPotionsGUI implements Listener {
     public CBPotionsGUI(CustomConfig_1 data, main plugin){ this.data = data; this.plugin = plugin;}
 
 
-    private GUISorting sort = new GUISorting();
+    private GUISorting sort = new GUISorting(plugin);
     private PotionGUIItems pots = new PotionGUIItems();
 
 

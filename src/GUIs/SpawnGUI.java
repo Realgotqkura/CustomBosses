@@ -45,6 +45,8 @@ public class SpawnGUI implements Listener {
                 return;
             }
             if(event.getSlot() == 3){
+               NaturalSpawnGUI gui = new NaturalSpawnGUI(data, plugin);
+               gui.createInv(player);
 
             }
         }

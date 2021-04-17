@@ -4,19 +4,26 @@ import java.util.ArrayList;
 import java.util.List;
 
 import CBossUtils.RandomUtils;
+import DataManager.CustomConfig_1;
+import Main.main;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
+import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
 import net.md_5.bungee.api.ChatColor;
+import org.bukkit.plugin.java.JavaPlugin;
 import org.json.simple.JSONArray;
 
 public class GUI_Items {
 	
 	
-	
+	private main plugin;
+	public GUI_Items(main plugin){
+		this.plugin = plugin;
+	}
 	
 	
 	public ItemStack GUIglassDark() {
@@ -142,29 +149,104 @@ public class GUI_Items {
 		return item;
 	}
 
-	public static ItemStack SelectTime(){
+	public ItemStack SelectTime(Player player){
+		CustomConfig_1 data = new CustomConfig_1(plugin);
 		ItemStack item = new ItemStack(Material.CLOCK);
 		ItemMeta meta = item.getItemMeta();
+		assert meta != null;
 		meta.setDisplayName(RandomUtils.color("&e&lSpawning Period"));
 		List<String> lore = new ArrayList<>();
 		lore.add(RandomUtils.color("&7This setting allows you to set"));
 		lore.add(RandomUtils.color("&7The period between mob spawns"));
+		try {
+			lore.add(RandomUtils.color("&7Current Time: &a" + data.getConfig().getInt("NaturalSpawning.NaturalTime") + "s"));
+		}catch(NullPointerException e){
+			lore.add(RandomUtils.color("&7Current Time: &a10s"));
+		}
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 		return item;
 	}
 
-	public static ItemStack SpawnRate(){
-		ItemStack item = new ItemStack(Material.);
+	public ItemStack SpawnRate(Player player){
+		CustomConfig_1 data = new CustomConfig_1(plugin);
+		ItemStack item = new ItemStack(Material.ZOMBIE_SPAWN_EGG);
 		ItemMeta meta = item.getItemMeta();
+		assert meta != null;
 		meta.setDisplayName(RandomUtils.color("&e&lSpawn Rate"));
 		List<String> lore = new ArrayList<>();
 		lore.add(RandomUtils.color("&7This setting allows you to set"));
-		lore.add(RandomUtils.color("&7The period between mob spawns"));
+		lore.add(RandomUtils.color("&7The amount of mobs spawn per player."));
+		lore.add(RandomUtils.color("&7(More than 3 might be performance heavy"));
+		lore.add(RandomUtils.color("&7in a server with alot of players"));
+		try {
+			lore.add(RandomUtils.color("&7Current Mobs: &a" + data.getConfig().getInt("NaturalSpawning.MobsChunkSpawn")));
+		}catch(NullPointerException e){
+			lore.add(RandomUtils.color("&7Current Mobs: &a1"));
+		}
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 		return item;
 	}
+
+	public ItemStack PlayerMob(Player player){
+		CustomConfig_1 data = new CustomConfig_1(plugin);
+		ItemStack item = new ItemStack(Material.PLAYER_HEAD);
+		ItemMeta meta = item.getItemMeta();
+		assert meta != null;
+		meta.setDisplayName(RandomUtils.color("&3&lSet players Mob"));
+		List<String> lore = new ArrayList<>();
+		lore.add(RandomUtils.color("&7This setting allows you to set"));
+		lore.add(RandomUtils.color("&7What mob spawns. Just put the name"));
+		lore.add(RandomUtils.color("&7Of the player you want to use. (Make sure"));
+		lore.add(RandomUtils.color("&7you have a player that has a mob or it will not work)"));
+		lore.add("");
+		lore.add(RandomUtils.color("&c&lDOESNT &7have to be an online player."));
+		try {
+			lore.add(RandomUtils.color("&7Using &a" + data.getConfig().getString("NaturalSpawning.PlayerMob") + "'s Mob"));
+		}catch(NullPointerException e){
+			lore.add(RandomUtils.color("&7Using &aNoones &7Mob"));
+		}
+		meta.setLore(lore);
+		item.setItemMeta(meta);
+		return item;
+	}
+
+	public ItemStack NaturalSpawnActivation(Player player){
+		CustomConfig_1 data = new CustomConfig_1(plugin);
+		ItemStack item = new ItemStack(Material.NETHER_STAR);
+		ItemMeta meta = item.getItemMeta();
+		assert meta != null;
+		meta.setDisplayName(RandomUtils.color("&5&lActivate Natural Spawning"));
+		List<String> lore = new ArrayList<>();
+		lore.add(RandomUtils.color("&7Activate Natural Spawning on your world."));
+		try {
+			lore.add(RandomUtils.color("&7Activated: &a" + data.getConfig().getBoolean("NaturalSpawning.Spawn_Naturally")));
+		}catch(NullPointerException e){
+			lore.add(RandomUtils.color("&7Activated: &afalse"));
+		}
+		meta.setLore(lore);
+		item.setItemMeta(meta);
+		return item;
+	}
+
+	public ItemStack WorldPicker(){
+		ItemStack item = new ItemStack(Material.STONE);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(RandomUtils.color("&a&lPick Your World"));
+		List<String> lore = new ArrayList<>();
+		lore.add(RandomUtils.color("&cNOTE &7Functionality of this feature is limited."));
+		lore.add(RandomUtils.color("&for a bit you will only be able to set it for 1 world"));
+		lore.add(RandomUtils.color("&7in the next update i will change that."));
+		lore.add("");
+		lore.add(RandomUtils.color("&7Click to set the world to the current"));
+		lore.add(RandomUtils.color("&7world you are in."));
+		meta.setLore(lore);
+		item.setItemMeta(meta);
+		return item;
+	}
+
+
 	
 	
 }

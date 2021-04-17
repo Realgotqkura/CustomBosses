@@ -22,12 +22,11 @@ public class PickMobGUI implements Listener{
 		this.plugin = plugin;
 		this.data = data;
 	}
-	
 
-	private GUISorting sort = new GUISorting();
-	private MobItemsGUI Mobs = new MobItemsGUI();
+	private final MobItemsGUI Mobs = new MobItemsGUI();
 	
 	public void createMobGUI() {
+		GUISorting sort = new GUISorting(plugin);
 		MobGUI = Bukkit.createInventory(null, 36, "§2§lPick Your Mob Type");
 		
 		sort.GetInner(MobGUI, 36);

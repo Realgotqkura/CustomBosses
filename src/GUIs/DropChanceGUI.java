@@ -28,7 +28,7 @@ public class DropChanceGUI implements Listener {
 
     public void createdropChanceInv(){
         dropChanceInv = Bukkit.createInventory(null, 9, RandomUtils.color("&9Drop Chance"));
-        GUISorting sorting = new GUISorting();
+        GUISorting sorting = new GUISorting(plugin);
         sorting.GetInner(dropChanceInv, 9);
 
         dropChanceInv.setItem(1, DropChanceItems.DPHelmet());

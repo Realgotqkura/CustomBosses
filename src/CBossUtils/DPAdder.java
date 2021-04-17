@@ -52,36 +52,36 @@ public class DPAdder {
     }
 
 
-    public void ZombieAdd(Zombie obj, Player player){
+    public void ZombieAdd(Zombie obj, String uuid){
         data.reloadConfig();
 
         try{
-            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Helmet_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + uuid + ".Helmet_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".ChestPlate_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + uuid + ".ChestPlate_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Leggings_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + uuid + ".Leggings_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Boots_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + uuid + ".Boots_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Main_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + uuid + ".Main_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Off_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + uuid + ".Off_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(0);
         }
@@ -106,36 +106,36 @@ public class DPAdder {
         }
     }
 
-    public void SkeletonAdd(Skeleton obj, Player player){
+    public void SkeletonAdd(Skeleton obj, String uuid){
         data.reloadConfig();
 
         try{
-            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Helmet_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + uuid + ".Helmet_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".ChestPlate_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + uuid + ".ChestPlate_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Leggings_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + uuid + ".Leggings_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Boots_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + uuid + ".Boots_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Main_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + uuid + ".Main_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Off_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + uuid + ".Off_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(0);
         }
@@ -161,36 +161,36 @@ public class DPAdder {
     }
 
 
-    public void PigmanAdd(PigZombie obj, Player player){
+    public void PigmanAdd(PigZombie obj, String uuid){
         data.reloadConfig();
 
         try{
-            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Helmet_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + uuid + ".Helmet_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".ChestPlate_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + uuid + ".ChestPlate_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Leggings_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + uuid + ".Leggings_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Boots_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + uuid + ".Boots_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Main_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + uuid + ".Main_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Off_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + uuid + ".Off_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(0);
         }
@@ -215,36 +215,36 @@ public class DPAdder {
         }
     }
 
-    public void PiglinAdd(Piglin obj, Player player){
+    public void PiglinAdd(Piglin obj, String uuid){
         data.reloadConfig();
 
         try{
-            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Helmet_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + uuid + ".Helmet_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".ChestPlate_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + uuid + ".ChestPlate_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Leggings_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + uuid + ".Leggings_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Boots_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + uuid + ".Boots_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Main_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + uuid + ".Main_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Off_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + uuid + ".Off_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(0);
         }
@@ -269,36 +269,36 @@ public class DPAdder {
         }
     }
 
-    public void WitherSkeletonAdd(WitherSkeleton obj, Player player){
+    public void WitherSkeletonAdd(WitherSkeleton obj, String uuid){
         data.reloadConfig();
 
         try{
-            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Helmet_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(data.getConfig().getInt("players." + uuid + ".Helmet_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setHelmetDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".ChestPlate_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(data.getConfig().getInt("players." + uuid + ".ChestPlate_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setChestplateDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Leggings_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(data.getConfig().getInt("players." + uuid + ".Leggings_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setLeggingsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Boots_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(data.getConfig().getInt("players." + uuid + ".Boots_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setBootsDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Main_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(data.getConfig().getInt("players." + uuid + ".Main_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInMainHandDropChance(0);
         }
         try{
-            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + player.getUniqueId().toString() + ".Off_DP"));
+            Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(data.getConfig().getInt("players." + uuid + ".Off_DP"));
         }catch(NullPointerException e){
             Objects.requireNonNull(obj.getEquipment()).setItemInOffHandDropChance(0);
         }

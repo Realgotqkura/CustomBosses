@@ -1,5 +1,6 @@
 package CBossUtils;
 
+import Main.main;
 import org.bukkit.Material;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
@@ -10,7 +11,12 @@ import CBossItemStacks.GUI_Items;
 
 public class GUISorting {
 
-	private GUI_Items items = new GUI_Items();
+	private main plugin;
+	public GUISorting(main plugin){
+		this.plugin = plugin;
+	}
+
+	private GUI_Items items = new GUI_Items(plugin);
 	public void GetInner(Inventory inv, int size) {
 
 		if(size == 36) {

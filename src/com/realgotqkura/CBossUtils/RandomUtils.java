@@ -33,6 +33,12 @@ public class RandomUtils {
         System.out.println(r);
         return mintime + (t * timedivider) + r;
     }
-
  */
+
+    public static int RecommendedSpawnRate(int time, int minTime, int mobs){
+        if(time > minTime){
+            return (time / 10) + mobs;
+        }
+        return time / 5;
+    }
 }

@@ -171,10 +171,10 @@ public class GUI_Items {
 		meta.setDisplayName(RandomUtils.color("&e&lSpawn Rate"));
 		List<String> lore = new ArrayList<>();
 		lore.add(RandomUtils.color("&7This setting allows you to set"));
-		lore.add(RandomUtils.color("&7The amount of mobs spawn per world."));
-		lore.add(RandomUtils.color("&7The mobs get distributed to every player"));
-		lore.add(RandomUtils.color("&7equally. So if you have 100 mobs with 25"));
-		lore.add(RandomUtils.color("&7players you get 4 mobs per player."));
+		lore.add(RandomUtils.color("&7The amount of mobs spawn per player."));
+		lore.add(RandomUtils.color("&a(recommended mobs: " + RandomUtils.RecommendedSpawnRate(data.getConfig().getInt("NaturalSpawning.NaturalTime"), 30,
+
+		5) + ")"));
 		lore.add("");
 		lore.add(RandomUtils.color("&7Current Mobs: &a" + data.getConfig().getInt("NaturalSpawning.MobsChunkSpawn")));
 		lore.add(RandomUtils.color("&7Mobs per player: &a" +data.getConfig().getInt("NaturalSpawning.MobsChunkSpawn") / Bukkit.getOnlinePlayers().size()));
@@ -271,6 +271,19 @@ public class GUI_Items {
         item.setItemMeta(meta);
         return item;
     }
+
+    public ItemStack Info(){
+		ItemStack info = new ItemStack(Material.REDSTONE);
+		ItemMeta meta = info.getItemMeta();
+		meta.setDisplayName(RandomUtils.color("&cIMPORTANT INFO"));
+		List<String> lore = new ArrayList<>();
+		lore.add(RandomUtils.color("&7If your mob doesn't spawn check every"));
+		lore.add(RandomUtils.color("&7setting and make sure the player setting"));
+		lore.add(RandomUtils.color("&7is set to a player who has a mob."));
+		meta.setLore(lore);
+		info.setItemMeta(meta);
+		return info;
+	}
 
 
 

@@ -26,33 +26,31 @@ public class NaturalSpawning_Event implements Listener {
     }
 
     public void SpawnMobs(CustomConfig_1 data, main plugin) {
-        OfflinePlayer player;
-        World world;
+        OfflinePlayer player1;
         try {
-            player = Bukkit.getOfflinePlayer(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.PlayerMob")));
+            player1 = Bukkit.getOfflinePlayer(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.PlayerMob")));
         } catch (NullPointerException e) {
             System.out.println("You wont be able to spawn a mob if the player hasn't joined or doesn't exist.");
-            return;
-        }
-        try {
-            world = Bukkit.getWorld(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld")));
-        } catch (NullPointerException e) {
-            System.out.println("No such world exists");
             return;
         }
         if (data.getConfig().getInt("NaturalSpawning.NaturalTime") == 0) {
             System.out.println("0 second delay is not allowed");
             return;
         }
-        assert world != null;
-        List<Chunk> chunks = Arrays.asList(world.getLoadedChunks());
         new BukkitRunnable() {
 
+            OfflinePlayer player1;
             @Override
             public void run() {
+                try {
+                    player1 = Bukkit.getOfflinePlayer(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.PlayerMob")));
+                } catch (NullPointerException e) {
+                    System.out.println("You wont be able to spawn a mob if the player hasn't joined or doesn't exist.");
+                    return;
+                }
                 if (data.getConfig().getBoolean("NaturalSpawning.Spawn_Naturally")) {
                     if (data.getConfig().getInt("NaturalSpawning.MobsChunkSpawn") > 0) {
-                       if(day(world)){
+                       if(day(Objects.requireNonNull(Bukkit.getWorld(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld")))))){
                            if(data.getConfig().getBoolean("NaturalSpawning.DaySpawn")){
                                data.reloadConfig();
                                for(Player player : Bukkit.getOnlinePlayers()){
@@ -60,28 +58,31 @@ public class NaturalSpawning_Event implements Listener {
                                    for(int i = 0; i <= data.getConfig().getInt("NaturalSpawning.MobsChunkSpawn"); i++){
                                        int randomx = ThreadLocalRandom.current().nextInt(-200,200 + 1);
                                        int randomz = ThreadLocalRandom.current().nextInt(-200,200 + 1);
-                                       Location loc = new Location(world, ploc.getX() + randomx, ploc.getY(), ploc.getZ() + randomz);
-                                       Location spawnloc = new Location(world, Math.round(ploc.getX() + randomx), world.getHighestBlockYAt(loc) + 2, Math.round(ploc.getZ() + randomz));
+                                       Location loc = new Location(Bukkit.getWorld(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld"))), ploc.getX() + randomx, ploc.getY(), ploc.getZ() + randomz);
+                                       Location spawnloc = new Location(loc.getWorld(), Math.round(ploc.getX() + randomx), loc.getWorld().getHighestBlockYAt(loc) + 2, Math.round(ploc.getZ() + randomz));
                                        MobSpawnEvent spawn = new MobSpawnEvent(data, plugin);
-                                       spawn.spawnMethod(data, plugin, player.getUniqueId().toString(), world.getName(), spawnloc);
-                                       System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ());
+                                       try {
+                                           spawn.spawnMethod(data, plugin, player1.getUniqueId().toString(), data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld"), spawnloc);
+                                       }catch(Exception ignored){
+
+                                       }
+                                       System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ() + " world: " + spawnloc.getWorld().getName());
 
                                    }
                                }
                            }
                        }else{
                            data.reloadConfig();
-                           System.out.println("E");
                            for(Player player : Bukkit.getOnlinePlayers()){
                                Location ploc = player.getLocation();
                                for(int i = 0; i <= data.getConfig().getInt("NaturalSpawning.MobsChunkSpawn"); i++){
                                    int randomx = ThreadLocalRandom.current().nextInt(-200,200 + 1);
                                    int randomz = ThreadLocalRandom.current().nextInt(-200,200 + 1);
-                                   Location loc = new Location(world, ploc.getX() + randomx, ploc.getY(), ploc.getZ() + randomz);
-                                   Location spawnloc = new Location(world, Math.round(ploc.getX() + randomx), world.getHighestBlockYAt(loc) + 2, Math.round(ploc.getZ() + randomz));
+                                   Location loc = new Location(Bukkit.getWorld(Objects.requireNonNull(data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld"))), ploc.getX() + randomx, ploc.getY(), ploc.getZ() + randomz);
+                                   Location spawnloc = new Location(loc.getWorld(), Math.round(ploc.getX() + randomx), loc.getWorld().getHighestBlockYAt(loc) + 2, Math.round(ploc.getZ() + randomz));
                                    MobSpawnEvent spawn = new MobSpawnEvent(data, plugin);
-                                   spawn.spawnMethod(data, plugin, player.getUniqueId().toString(), world.getName(), spawnloc);
-                                   System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ());
+                                   spawn.spawnMethod(data, plugin, player1.getUniqueId().toString(), data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld"), spawnloc);
+                                   System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ() + " world: " + spawnloc.getWorld().getName());
 
                                }
                            }

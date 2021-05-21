@@ -46,13 +46,24 @@ public class SpawnGUI implements Listener {
             }
             if(event.getSlot() == 3){
                 try{
-                    if(data.getConfig().getBoolean("NaturalSpawning.Clicked")){
-                        data.getConfig().set("NaturalSpawning.Clicked", false);
+                    if(!data.getConfig().getBoolean("NaturalSpawning.Clicked")){
+                        data.getConfig().set("NaturalSpawning.Clicked", true);
                         data.getConfig().set("NaturalSpawning.SafetyMode", true);
+                        data.getConfig().set("NaturalSpawning.NaturalTime", 30);
+                        data.getConfig().set("NaturalSpawning.MobsChunkSpawn", 5);
+                        data.getConfig().set("NaturalSpawning.PlayerMob", player.getName());
+                        data.getConfig().set("NaturalSpawning.NaturalSpawnWorld", player.getWorld().getName());
+                        data.getConfig().set("NaturalSpawning.DaySpawn", false);
                         data.saveConfig();
                     }
-                }catch(NullPointerException e) {
+                }catch(Exception e) {
                     data.getConfig().set("NaturalSpawning.Clicked", true);
+                    data.getConfig().set("NaturalSpawning.SafetyMode", true);
+                    data.getConfig().set("NaturalSpawning.NaturalTime", 30);
+                    data.getConfig().set("NaturalSpawning.MobsChunkSpawn", 5);
+                    data.getConfig().set("NaturalSpawning.PlayerMob", player.getName());
+                    data.getConfig().set("NaturalSpawning.NaturalSpawnWorld", player.getWorld().getName());
+                    data.getConfig().set("NaturalSpawning.DaySpawn", false);
                     data.saveConfig();
                 }
                NaturalSpawnGUI gui = new NaturalSpawnGUI(data, plugin);

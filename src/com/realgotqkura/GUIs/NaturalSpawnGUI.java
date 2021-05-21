@@ -42,14 +42,15 @@ public class NaturalSpawnGUI implements Listener {
         gui.setItem(13, items.NaturalSpawnActivation(player));
         gui.setItem(11, items.SafetyMode(player));
         gui.setItem(15, items.DaySpawning(player));
+        gui.setItem(17, items.Info());
 
         player.openInventory(gui);
     }
 
-    @EventHandler
+    @EventHandler()
     public void onClick(InventoryClickEvent event){
         GUI_Items items = new GUI_Items(plugin);
-        if(!event.getView().getTitle().equals("Natural Spawning Settings") && Objects.equals(event.getView().getItem(7), items.WorldPicker())){
+        if(!event.getView().getTitle().equals("Natural Spawning Settings") && !Objects.equals(event.getView().getItem(7), items.WorldPicker())){
             return;
         }
 
@@ -132,6 +133,11 @@ public class NaturalSpawnGUI implements Listener {
                 player.sendMessage(RandomUtils.color("&cit to the minimum value(30)"));
                 player.sendMessage(RandomUtils.color("&cIf you want to disable this feature go to the Natural spawn GUI"));
                 name = 30;
+                data.getConfig().set("players."+ player.getUniqueId().toString() +".TypingGeneral", false);
+                data.getConfig().set("NaturalSpawning.NaturalTime", name);
+                data.getConfig().set("NaturalSpawning.NaturalTyping", false);
+                data.saveConfig();
+                return;
             }
         }
         data.getConfig().set("players."+ player.getUniqueId().toString() +".TypingGeneral", false);
@@ -156,7 +162,7 @@ public class NaturalSpawnGUI implements Listener {
             player.sendMessage(RandomUtils.color("&cIt must be a number >:(, set it to the default value (1)."));
             name = 1;
         }
-        if(name > 100){
+        if(name > 30){
             if(!data.getConfig().getBoolean("NaturalSpawning.SafetyMode")) {
                 data.getConfig().set("players."+ player.getUniqueId().toString() +".TypingGeneral", false);
                 data.getConfig().set("NaturalSpawning.MobsChunkSpawn", name);
@@ -167,6 +173,13 @@ public class NaturalSpawnGUI implements Listener {
             }
             player.sendMessage(RandomUtils.color("&4&lSAFETY MODE: &cThis is way above the maximum amount. Setting"));
             player.sendMessage(RandomUtils.color("&cit to the minimum value(30)"));
+            player.sendMessage(RandomUtils.color("&cIf you want to disable this feature go to the Natural spawn GUI"));
+            name = 30;
+            data.getConfig().set("players."+ player.getUniqueId().toString() +".TypingGeneral", false);
+            data.getConfig().set("NaturalSpawning.MobsChunkSpawn", name);
+            data.getConfig().set("NaturalSpawning.MobsChunkSpawnTyping", false);
+            data.saveConfig();
+            return;
         }
         data.getConfig().set("players."+ player.getUniqueId().toString() +".TypingGeneral", false);
         data.getConfig().set("NaturalSpawning.MobsChunkSpawn", name);

@@ -38,7 +38,7 @@ public class NaturalSpawnGUI implements Listener {
         gui.setItem(1, items.SelectTime(player));
         gui.setItem(3, items.SpawnRate(player));
         gui.setItem(5, items.PlayerMob(player));
-        gui.setItem(7, items.WorldPicker());
+        gui.setItem(7, items.WorldPicker(player));
         gui.setItem(13, items.NaturalSpawnActivation(player));
         gui.setItem(11, items.SafetyMode(player));
         gui.setItem(15, items.DaySpawning(player));
@@ -50,7 +50,7 @@ public class NaturalSpawnGUI implements Listener {
     @EventHandler()
     public void onClick(InventoryClickEvent event){
         GUI_Items items = new GUI_Items(plugin);
-        if(!event.getView().getTitle().equals("Natural Spawning Settings") && !Objects.equals(event.getView().getItem(7), items.WorldPicker())){
+        if(!event.getView().getTitle().equals("Natural Spawning Settings") && !Objects.equals(event.getView().getItem(17), items.Info())){
             return;
         }
 
@@ -79,6 +79,7 @@ public class NaturalSpawnGUI implements Listener {
             data.getConfig().set("NaturalSpawning.NaturalSpawnWorld", player.getWorld().getName());
             data.saveConfig();
             player.sendMessage(RandomUtils.color("&aSuccessfully added the world!"));
+            player.closeInventory();
         }else if(event.getSlot() == 13){
             if(data.getConfig().getBoolean("NaturalSpawning.Spawn_Naturally")){
                 data.getConfig().set("NaturalSpawning.Spawn_Naturally", false);

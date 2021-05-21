@@ -224,7 +224,8 @@ public class GUI_Items {
 		return item;
 	}
 
-	public ItemStack WorldPicker(){
+	public ItemStack WorldPicker(Player player){
+		CustomConfig_1 data = new CustomConfig_1(plugin);
 		ItemStack item = new ItemStack(Material.STONE);
 		ItemMeta meta = item.getItemMeta();
 		meta.setDisplayName(RandomUtils.color("&a&lPick Your World"));
@@ -235,6 +236,8 @@ public class GUI_Items {
 		lore.add("");
 		lore.add(RandomUtils.color("&7Click to set the world to the current"));
 		lore.add(RandomUtils.color("&7world you are in."));
+		lore.add("");
+		lore.add(RandomUtils.color("&7Current World: &a" + data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld")));
 		meta.setLore(lore);
 		item.setItemMeta(meta);
 		return item;

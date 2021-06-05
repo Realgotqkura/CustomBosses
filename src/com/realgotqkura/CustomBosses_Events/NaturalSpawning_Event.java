@@ -66,7 +66,7 @@ public class NaturalSpawning_Event implements Listener {
                                        }catch(Exception ignored){
 
                                        }
-                                       System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ() + " world: " + spawnloc.getWorld().getName());
+                                       //System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ() + " world: " + spawnloc.getWorld().getName());
 
                                    }
                                }
@@ -82,7 +82,7 @@ public class NaturalSpawning_Event implements Listener {
                                    Location spawnloc = new Location(loc.getWorld(), Math.round(ploc.getX() + randomx), loc.getWorld().getHighestBlockYAt(loc) + 2, Math.round(ploc.getZ() + randomz));
                                    MobSpawnEvent spawn = new MobSpawnEvent(data, plugin);
                                    spawn.spawnMethod(data, plugin, player1.getUniqueId().toString(), data.getConfig().getString("NaturalSpawning.NaturalSpawnWorld"), spawnloc);
-                                   System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ() + " world: " + spawnloc.getWorld().getName());
+                                   //System.out.println(spawnloc.getX() + " " + spawnloc.getY() + " " + spawnloc.getZ() + " world: " + spawnloc.getWorld().getName());
 
                                }
                            }

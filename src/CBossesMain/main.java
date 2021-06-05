@@ -6,6 +6,7 @@ import com.realgotqkura.CustomBosses_Events.MobSpawnEvent;
 import com.realgotqkura.CustomBosses_Events.NaturalSpawning_Event;
 import com.realgotqkura.DataManager.CustomConfig_1;
 import com.realgotqkura.GUIs.*;
+import com.realgotqkura.Metric;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -18,6 +19,10 @@ public class main extends JavaPlugin{
 
 	@Override
 	public void onEnable() {
+
+
+		int pluginID = 11591;
+		Metric metric = new Metric(this, pluginID);
 
 		//Commands
 		Objects.requireNonNull(this.getCommand("CBossesGUI")).setExecutor(new Commands(this.data, this));

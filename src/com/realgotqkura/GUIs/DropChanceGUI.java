@@ -154,7 +154,7 @@ public class DropChanceGUI implements Listener {
         if (d.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".HelmetDPChat")) {
             event.setCancelled(true);
             try {
-                int num = Integer.parseInt(event.getMessage());
+                double num = Double.parseDouble(event.getMessage());
                 player.sendMessage(ChatColor.GREEN + "Successfully added the chance!");
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".Helmet_DP", num);
@@ -173,7 +173,7 @@ public class DropChanceGUI implements Listener {
         } else if (d.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".ChestPlateDPChat")) {
             event.setCancelled(true);
             try {
-                int num = Integer.parseInt(event.getMessage());
+                double num = Double.parseDouble(event.getMessage());
                 player.sendMessage(ChatColor.GREEN + "Successfully added the chance!");
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".ChestPlate_DP", num);
@@ -191,7 +191,7 @@ public class DropChanceGUI implements Listener {
         } else if (d.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".LeggingsDPChat")) {
             event.setCancelled(true);
             try {
-                int num = Integer.parseInt(event.getMessage());
+                double num = Double.parseDouble(event.getMessage());
                 player.sendMessage(ChatColor.GREEN + "Successfully added the chance!");
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".Leggings_DP", num);
@@ -209,7 +209,7 @@ public class DropChanceGUI implements Listener {
         } else if (d.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".BootsDPChat")) {
             event.setCancelled(true);
             try {
-                int num = Integer.parseInt(event.getMessage());
+                double num = Double.parseDouble(event.getMessage());
                 player.sendMessage(ChatColor.GREEN + "Successfully added the chance!");
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".Boots_DP", num);
@@ -227,7 +227,7 @@ public class DropChanceGUI implements Listener {
         } else if (d.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".MainDPChat")) {
             event.setCancelled(true);
             try {
-                int num = Integer.parseInt(event.getMessage());
+                double num = Double.parseDouble(event.getMessage());
                 player.sendMessage(ChatColor.GREEN + "Successfully added the chance!");
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".Main_DP", num);
@@ -245,7 +245,7 @@ public class DropChanceGUI implements Listener {
         } else if (d.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".OffDPChat")) {
             event.setCancelled(true);
             try {
-                int num = Integer.parseInt(event.getMessage());
+                double num = Double.parseDouble(event.getMessage());
                 player.sendMessage(ChatColor.GREEN + "Successfully added the chance!");
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
                 d.getConfig().set("players." + player.getUniqueId().toString() + ".Off_DP", num);

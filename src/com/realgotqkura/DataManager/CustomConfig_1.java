@@ -46,7 +46,7 @@ public class CustomConfig_1 {
 		try {
 			this.getConfig().save(this.configFile);
 		} catch (IOException e) {
-			plugin.getLogger().log(Level.SEVERE, "Didnt Save Config to " + this.configFile, e);
+			plugin.getLogger().log(Level.SEVERE, "Didn't Save Config to " + this.configFile, e);
 		}
 	}
 	

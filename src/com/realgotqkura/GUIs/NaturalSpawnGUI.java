@@ -41,6 +41,7 @@ public class NaturalSpawnGUI implements Listener {
         gui.setItem(7, items.WorldPicker(player));
         gui.setItem(13, items.NaturalSpawnActivation(player));
         gui.setItem(11, items.SafetyMode(player));
+        //gui.setItem(9, items.MobCapItem(player));
         gui.setItem(15, items.DaySpawning(player));
         gui.setItem(17, items.Info());
 
@@ -75,6 +76,15 @@ public class NaturalSpawnGUI implements Listener {
             data.saveConfig();
             player.sendMessage(RandomUtils.color("&aChoose the player you want to use!"));
             player.closeInventory();
+        /*}
+        else if(event.getSlot() == 9){
+            data.getConfig().set("players."+ player.getUniqueId().toString() +".TypingGeneral", true);
+            data.getConfig().set("NaturalSpawning.MobCapTyping", true);
+            data.saveConfig();
+            player.sendMessage(RandomUtils.color("&aChoose a number for the mob cap!"));
+            player.closeInventory();
+
+         */
         }else if(event.getSlot() == 7){
             data.getConfig().set("NaturalSpawning.NaturalSpawnWorld", player.getWorld().getName());
             data.saveConfig();
@@ -125,7 +135,7 @@ public class NaturalSpawnGUI implements Listener {
         try {
             name = Integer.parseInt(event.getMessage());
         }catch(NumberFormatException e){
-           player.sendMessage(RandomUtils.color("&cIt must be a number >:(, set it to the default value (30)."));
+           player.sendMessage(RandomUtils.color("&cIt must be a number >:(, setting it to the default value (30)."));
            name = 30;
         }
         if(name < 30){
@@ -160,7 +170,7 @@ public class NaturalSpawnGUI implements Listener {
         try {
             name = Integer.parseInt(event.getMessage());
         }catch(NumberFormatException e){
-            player.sendMessage(RandomUtils.color("&cIt must be a number >:(, set it to the default value (1)."));
+            player.sendMessage(RandomUtils.color("&cIt must be a number >:(, setting it to the default value (1)."));
             name = 1;
         }
         if(name > 30){
@@ -190,7 +200,66 @@ public class NaturalSpawnGUI implements Listener {
 
     }
 
+    /*
     @EventHandler
+    public void onChatMobse(AsyncPlayerChatEvent event) {
+        Player player = event.getPlayer();
+        if (!this.data.getConfig().getBoolean("NaturalSpawning.MobCapTyping"))
+            return;
+
+        event.setCancelled(true);
+
+        int name;
+        try {
+            name = Integer.parseInt(event.getMessage());
+        } catch (NumberFormatException e) {
+            player.sendMessage(RandomUtils.color("&cIt must be a number >:(, setting it to the default value (1)."));
+            name = 1;
+            data.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
+            data.getConfig().set("NaturalSpawning.MobCap", name);
+            data.getConfig().set("NaturalSpawning.MobCapTyping", false);
+            data.saveConfig();
+            return;
+        }
+        if(name <= 0){
+            player.sendMessage(RandomUtils.color("&cIt Must be bigger than 0 >:(, setting it to the default value (1)."));
+            name = 1;
+            data.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
+            data.getConfig().set("NaturalSpawning.MobCap", name);
+            data.getConfig().set("NaturalSpawning.MobCapTyping", false);
+            data.saveConfig();
+            return;
+        }
+        if (name > 50) {
+            if (!data.getConfig().getBoolean("NaturalSpawning.SafetyMode")) {
+                data.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
+                data.getConfig().set("NaturalSpawning.MobCap", name);
+                data.getConfig().set("NaturalSpawning.MobCapTyping", false);
+                data.saveConfig();
+                player.sendMessage(RandomUtils.color("&aSuccessfully changed the amount of mobs!"));
+                return;
+            }
+            player.sendMessage(RandomUtils.color("&4&lSAFETY MODE: &cThis is way above the maximum amount. Setting"));
+            player.sendMessage(RandomUtils.color("&cit to the minimum value(50)"));
+            player.sendMessage(RandomUtils.color("&cIf you want to disable this feature go to the Natural spawn GUI"));
+            name = 50;
+            data.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
+            data.getConfig().set("NaturalSpawning.MobCap", name);
+            data.getConfig().set("NaturalSpawning.MobCapTyping", false);
+            player.sendMessage(RandomUtils.color("&aSuccessfully changed the amount of mobs!"));
+            data.saveConfig();
+            return;
+        }
+        data.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
+        data.getConfig().set("NaturalSpawning.MobCap", name);
+        data.getConfig().set("NaturalSpawning.MobCapTyping", false);
+        player.sendMessage(RandomUtils.color("&aSuccessfully changed the amount of mobs!"));
+        data.saveConfig();
+    }
+
+     */
+
+        @EventHandler
     public void onChatPlayer(AsyncPlayerChatEvent event){
         Player player = event.getPlayer();
         if(!this.data.getConfig().getBoolean("NaturalSpawning.PlayerMobTyping"))

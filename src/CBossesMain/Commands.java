@@ -35,22 +35,21 @@ public class Commands implements CommandExecutor{
 			if (args.length >= 1) {
 				if (args[0].equalsIgnoreCase("getmobname")) {
 					CustomConfig_1 config = new CustomConfig_1(plugin);
-					String name;
-					name = config.getConfig().getString("players." + player.getUniqueId().toString() + ".MobName");
-					player.sendMessage("§6Your mobs name is: " + name);
+					String name = config.getConfig().getString("players." + player.getUniqueId().toString() + ".MobName");
+					player.sendMessage(RandomUtils.color("&6The name of the boss is: " + name));
 					return true;
 				}
 				if (args[0].equalsIgnoreCase("ismobababy")) {
 					CustomConfig_1 config = new CustomConfig_1(plugin);
 					boolean baby = config.getConfig().getBoolean("players." + player.getUniqueId().toString() + ".MobBaby");
-					player.sendMessage("§6Is your mob a baby: " + RandomUtils.color("&a" + baby));
+					player.sendMessage(RandomUtils.color("&6Is the mob a baby: &a" + baby));
 					return true;
 				}
 				if (args[0].equalsIgnoreCase("getmobhealth")) {
 					CustomConfig_1 config = new CustomConfig_1(plugin);
 					int name;
 					name = config.getConfig().getInt("players." + player.getUniqueId().toString() + ".MobHealth");
-					player.sendMessage("§6Your mobs health is: " + ChatColor.GREEN + name);
+					player.sendMessage(RandomUtils.color("&6Your mobs health is: &a" + name));
 					return true;
 				}
 				if(args[0].equalsIgnoreCase("getmobpotions")){

@@ -36,7 +36,7 @@ public class Join_Event implements Listener {
                     data.getConfig().set("players." + player.getUniqueId().toString() + ".joined", true);
                     data.getConfig().set("players." + player.getUniqueId().toString() + ".MobTyping", false);
                     data.getConfig().set("players." + player.getUniqueId().toString() + ".MobType", "Zombie");
-                    data.getConfig().set("players." + player.getUniqueId().toString() + ".MobName", "Default Name");
+                    data.getConfig().set("players." + player.getUniqueId().toString() + ".MobName", "Default Name&0.");
                     data.getConfig().set("players." + player.getUniqueId().toString() + ".MobTypingHP", false);
                     data.getConfig().set("players." + player.getUniqueId().toString() + ".MobHealth", 20);
                     data.getConfig().set("players." + player.getUniqueId().toString() + ".MobBaby", false);
@@ -79,7 +79,7 @@ public class Join_Event implements Listener {
                 data.getConfig().set("players." + player.getUniqueId().toString() + ".joined", true);
                 data.getConfig().set("players." + player.getUniqueId().toString() + ".MobTyping", false);
                 data.getConfig().set("players." + player.getUniqueId().toString() + ".MobType", "Zombie");
-                data.getConfig().set("players." + player.getUniqueId().toString() + ".MobName", "Default Name");
+                data.getConfig().set("players." + player.getUniqueId().toString() + ".MobName", "Default Name&0.");
                 data.getConfig().set("players." + player.getUniqueId().toString() + ".MobTypingHP", false);
                 data.getConfig().set("players." + player.getUniqueId().toString() + ".MobHealth", 20);
                 data.getConfig().set("players." + player.getUniqueId().toString() + ".MobBaby", false);

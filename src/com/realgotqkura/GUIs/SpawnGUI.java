@@ -54,6 +54,7 @@ public class SpawnGUI implements Listener {
                         data.getConfig().set("NaturalSpawning.PlayerMob", player.getName());
                         data.getConfig().set("NaturalSpawning.NaturalSpawnWorld", player.getWorld().getName());
                         data.getConfig().set("NaturalSpawning.DaySpawn", false);
+                        data.getConfig().set("NaturalSpawning.MobCap", 30);
                         data.saveConfig();
                     }
                 }catch(Exception e) {
@@ -64,6 +65,7 @@ public class SpawnGUI implements Listener {
                     data.getConfig().set("NaturalSpawning.PlayerMob", player.getName());
                     data.getConfig().set("NaturalSpawning.NaturalSpawnWorld", player.getWorld().getName());
                     data.getConfig().set("NaturalSpawning.DaySpawn", false);
+                    data.getConfig().set("NaturalSpawning.MobCap", 30);
                     data.saveConfig();
                 }
                NaturalSpawnGUI gui = new NaturalSpawnGUI(data, plugin);

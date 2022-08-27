@@ -118,7 +118,7 @@ public class CBPropertiesGUI implements Listener{
 		event.setCancelled(true);
 		String name = event.getMessage();
 		data.getConfig().set("players." + player.getUniqueId().toString() + ".TypingGeneral", false);
-		data.getConfig().set("players." + player.getUniqueId().toString() + ".MobName", name);
+		data.getConfig().set("players." + player.getUniqueId().toString() + ".MobName", name + "&0.");
 		data.getConfig().set("players." + player.getUniqueId().toString() + ".MobTyping", false);
 		data.saveConfig();
 		player.sendMessage("§aSuccessfully named the mob!");

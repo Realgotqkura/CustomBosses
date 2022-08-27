@@ -7,6 +7,7 @@ import com.realgotqkura.CBossUtils.RandomUtils;
 import com.realgotqkura.DataManager.CustomConfig_1;
 import CBossesMain.main;
 import org.bukkit.Bukkit;
+import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
@@ -14,7 +15,6 @@ import org.bukkit.inventory.ItemFlag;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
 
-import net.md_5.bungee.api.ChatColor;
 
 public class GUI_Items {
 
@@ -274,6 +274,24 @@ public class GUI_Items {
         item.setItemMeta(meta);
         return item;
     }
+
+	public ItemStack MobCapItem(Player player){
+		CustomConfig_1 data = new CustomConfig_1(plugin);
+		ItemStack item = new ItemStack(Material.DIAMOND_HELMET);
+		ItemMeta meta = item.getItemMeta();
+		meta.setDisplayName(RandomUtils.color("&3&lMob Cap"));
+		List<String> lore = new ArrayList<>();
+		lore.add(RandomUtils.color("&7Mob Cap the mob you are currently spawning."));
+		lore.add(RandomUtils.color("&cNOTE: &7This cap is &cPER PLAYER&7, too little"));
+		lore.add(RandomUtils.color("&7could result in people not seeing mobs and too much"));
+		lore.add(RandomUtils.color("&7could lead to server lag."));
+		lore.add("");
+		lore.add(RandomUtils.color("&7Current Cap: &a" + data.getConfig().getInt("NaturalSpawning.MobCap")));
+		meta.setLore(lore);
+		meta.addItemFlags(ItemFlag.HIDE_ATTRIBUTES);
+		item.setItemMeta(meta);
+		return item;
+	}
 
     public ItemStack Info(){
 		ItemStack info = new ItemStack(Material.REDSTONE);
